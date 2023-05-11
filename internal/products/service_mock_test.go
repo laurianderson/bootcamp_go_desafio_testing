@@ -11,9 +11,9 @@ func TestServiceMock_GetSellers(t *testing.T) {
 	t.Run("get sellers", func(t *testing.T) {
 		//arrange
 		storage := NewRepositoryMock()
-		storage.On("GetAllBySeller", "FEX112AC" ).Return([]Product{
-			{ID: "mock", SellerID: "FEX112AC", Description: "generic product", Price:123.55},
-		} ,nil)
+		storage.On("GetAllBySeller", "FEX112AC").Return([]Product{
+			{ID: "mock", SellerID: "FEX112AC", Description: "generic product", Price: 123.55},
+		}, nil)
 
 		sv := NewService(storage)
 		//act
@@ -22,7 +22,8 @@ func TestServiceMock_GetSellers(t *testing.T) {
 		//assert
 		assert.NoError(t, err)
 		assert.Equal(t, []Product{
-			{ID: "mock", SellerID: "FEX112AC", Description: "generic product", Price:123.55},
+			{ID: "mock", SellerID: "FEX112AC", Description: "generic product", Price: 123.55},
 		}, seller)
+		storage.AssertExpectations(t)
 	})
 }
