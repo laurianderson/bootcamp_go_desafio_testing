@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestHandlerMock_GetSellers(t *testing.T) {
+func TestHandlerGet(t *testing.T) {
 	//succed case
 	t.Run("when seller id is", func(t *testing.T) {
 		// arrange
